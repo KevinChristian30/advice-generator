@@ -13,3 +13,11 @@
 .font-manrope {
   font-family: 'Manrope', sans-serif;
 }
+
+.glow {
+  transition: all 0.1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.glow:hover {
+  box-shadow: #52ffa8 0px 3px 28px 0px;
+}
