@@ -1,6 +1,5 @@
 import SlipService from '@/services/SlipService';
 import Slip from '@/types/Slip';
-import axios from 'axios';
 import { useEffect, useState } from 'react'
 
 const useSlip = () => {
