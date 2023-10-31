@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 import DiceButton from '../buttons/DiceButton';
 
 interface ICardProps {
   adviceNumber: number;
   quote: string;
-  onDiceButtonClick: () => void
+  onDiceButtonClick: () => void;
 }
 
 const Line = () => {
