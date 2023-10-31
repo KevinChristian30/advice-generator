@@ -18,7 +18,6 @@ const useSlip = () => {
         id: response.data.slip.id,
         advice: response.data.slip.advice
       });
-
     } catch (error) {
       setError(error);
     } finally {
