@@ -14,6 +14,16 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
     },
+    colors: {
+      'light-cyan': '#cee3e9',
+      'neon-green': '#52ffa8',
+      'grayish-blue': '#4e5d73',
+      'dark-grayish-blue': '#323a49',
+      'dark-blue': '#1f2632'
+    },
+    fontFamily: {
+      display: ['Manrope']
+    }
   },
   plugins: [],
 }
