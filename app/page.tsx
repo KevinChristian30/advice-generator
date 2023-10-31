@@ -2,47 +2,21 @@
 
 import QuoteCard from "@/components/cards/QuoteCard";
 import LoadingDiceAnimation from "@/components/loading/LoadingDiceAnimation";
-import Slip from "@/types/Slip";
-import axios from "axios";
-import { useEffect, useState } from "react";
+import useSlip from "@/hooks/useSlip";
 
 export default function Home() {
-  const [slip, setSlip] = useState<Slip>({
-    advice: '',
-    id: 0
-  });
-  const [loading, setLoading] = useState<boolean>(true);
-  
-  const fetchQuote = async () => {
-    setLoading(true);
-
-    try {
-      const response = await axios.get(
-        `https://api.adviceslip.com/advice?timestamp=${Date.now()}`,
-      );
-
-      setSlip({...response.data.slip});
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  useEffect(() => {
-    fetchQuote();
-  }, []);
+  const { data, loading, error, fetch } = useSlip();
 
   return (
     <main className="w-screen h-screen bg-dark-blue grid place-items-center">
       {
-        loading ? 
+        loading || !data ? 
         <LoadingDiceAnimation />
         :
         <QuoteCard
-          adviceNumber={slip?.id}
-          quote={slip?.advice}
-          onDiceButtonClick={fetchQuote}
+          adviceNumber={data.id}
+          quote={data.advice}
+          onDiceButtonClick={fetch}
         />
       }
     </main>
